@@ -1,0 +1,40 @@
+
+public class Solution {
+    public static int[] getSecondOrderElements(int n, int []a) {
+
+        int largest = Integer.MIN_VALUE;
+        int seclar = Integer.MIN_VALUE;
+
+        for(int i = 1; i < n; i++) {
+            if (a[i] > largest) {
+                seclar = largest;
+                largest = a[i];
+            }else if (a[i] > seclar && a[i] != largest) {
+                seclar = a[i];
+            }
+        }
+
+        /*if (seclar != Integer.MIN_VALUE) {
+            return  new int[]{seclar};
+        } else {
+            return null;
+        }*/
+    
+    int smallest=a[0];
+    int ssmallest=Integer.MAX_VALUE;
+
+       for(int i = 1; i < n; i++) {
+            if (a[i] < smallest) {
+                ssmallest = smallest;
+                smallest = a[i];
+            }else if (a[i] < ssmallest && a[i] != smallest) {
+                ssmallest = a[i];
+            }
+        }
+    
+
+    return new int[]{seclar, ssmallest};
+    }
+}
+
+
